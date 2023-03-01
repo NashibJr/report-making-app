@@ -1,0 +1,49 @@
+body {
+      font-family: century gothic;
+      padding: 20px;
+      margin: 0;
+      padding-left: 200px;
+      padding-right: 200px ;
+}
+.input-align {
+      display: flex;
+      padding: 0;
+      margin: 10px;
+      margin-left: 0;
+      justify-content: flex-start;
+      width: 100%;
+      flex-wrap: wrap;
+      flex-direction: row;
+}
+.input-content {
+      padding: 10px;
+      font-size: 1.0em;
+      outline: none;
+      background-color: #dfdfdf;
+      border: none;
+      width: 43%;
+      margin: 20px;
+      font-family: century gothic;
+      border-radius: 20px;
+}
+input[type="text"] {
+      width: 26.7%;
+}
+.content-padd {
+      margin-left: 0;
+}
+input::placeholder {
+      color: #000;
+}
+form button {
+      background-color: #000;
+      color: #fff;
+      padding: 10px;
+      font-family: century gothic;
+      font-size: 1em;
+      margin: 0;
+      border: none;
+      width: 45%;
+      border-radius: 20px;
+      font-weight: bold;
+}
