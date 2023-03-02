@@ -72,7 +72,10 @@ const ReportCard = () => {
           <strong>120</strong>
         </p>
         <p>
-          <strong>Grade:</strong> 1
+          <span>
+            <strong>Grade:</strong> 1
+          </span>
+          <button type="button">Print</button>
         </p>
       </div>
     </div>

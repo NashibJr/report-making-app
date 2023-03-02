@@ -75,3 +75,16 @@ form button {
 .remarks-content {
       margin-top: 30px;
 }
+.remarks-content p:last-child {
+      display: flex;
+      justify-content: space-between;
+}
+.remarks-content p:last-child button {
+      background-color: dodgerblue;
+      color: #fff;
+      font-family: century gothic;
+      padding: 10px;
+      width: 20%;
+      border: none;
+      font-weight: bold;
+}
