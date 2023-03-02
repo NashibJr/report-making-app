@@ -1,11 +1,11 @@
 import React from "react";
 import EnterMarks from "./forms/marksForm";
+import ReportCard from "./forms/reportCard";
 
 const App = () => {
   return (
     <div>
-      <h1>Report making App</h1>
-      <EnterMarks />
+      <ReportCard />
     </div>
   );
 };
