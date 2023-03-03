@@ -1,4 +1,8 @@
+import { nanoid } from "@reduxjs/toolkit";
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { addPupils } from "../redux/features/puipils/pupilsSlice";
 
 const EnterMarks = () => {
   const [state, setState] = useState({
@@ -9,6 +13,7 @@ const EnterMarks = () => {
     mathematics: "",
     sst: "",
     sci: "",
+    class: "",
   });
   const handleChange = (event) => {
     setState({ ...state, [event.target.name]: event.target.value });
@@ -19,12 +24,27 @@ const EnterMarks = () => {
     Boolean(state.english) &&
     Boolean(state.mathematics) &&
     Boolean(state.sst) &&
-    Boolean(state.sci);
+    Boolean(state.sci) &&
+    Boolean(state.class);
+  const pupil = {
+    id: nanoid(),
+    firstName: state.firstName,
+    lastName: state.lastName,
+    otherNames: state.otherNames,
+    english: state.english,
+    mathematics: state.mathematics,
+    sst: state.sst,
+    sci: state.sci,
+    class: state.class,
+  };
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   return (
     <form>
       <div>
+        <h1>Report Making App</h1>
         <h2>Student</h2>
-        <div className="input-align">
+        <div className="input-align align-input-firstdiv">
           <input
             type="text"
             name="firstName"
@@ -47,6 +67,14 @@ const EnterMarks = () => {
             value={state.otherNames}
             onChange={handleChange}
             placeholder="Other names (optional)"
+            className="input-content"
+          />
+          <input
+            type="text"
+            name="class"
+            value={state.class}
+            onChange={handleChange}
+            placeholder="Class"
             className="input-content"
           />
         </div>
@@ -90,8 +118,28 @@ const EnterMarks = () => {
           />
         </div>
       </div>
-      <button type="button" disabled={!onSave}>
+      <button
+        type="button"
+        disabled={!onSave}
+        onClick={() => {
+          dispatch(addPupils(pupil));
+          setState({
+            firstName: "",
+            lastName: "",
+            otherNames: "",
+            english: "",
+            mathematics: "",
+            sst: "",
+            sci: "",
+            class: "",
+          });
+          alert("Successfully added");
+        }}
+      >
         Save
+      </button>
+      <button type="button" onClick={() => navigate("/showpupils")}>
+        View pupils
       </button>
     </form>
   );
