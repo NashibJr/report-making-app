@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 import badge from "../images/scbhoologo.png";
 
 const ReportCard = () => {
+  const { id } = useParams();
+  const pupils = useSelector((state) => state.pupils.pupils);
+  const pupil = pupils.find((pupil) => pupil.id === id);
   return (
     <div className="report-content">
       <h2>XXX Primary School Terminal Report</h2>
@@ -14,9 +19,11 @@ const ReportCard = () => {
         </address>
       </header>
       <div>
-        <h3>Name of pupil: Mbaziira Henry</h3>
+        <h3>
+          Name of pupil: {pupil.firstName} {pupil.lastName} {pupil.otherNames}
+        </h3>
         <h3>Term: 2</h3>
-        <h3>Class: P.5</h3>
+        <h3>Class: {pupil.class}</h3>
       </div>
       <div>
         <table>
@@ -28,25 +35,25 @@ const ReportCard = () => {
           </tr>
           <tr>
             <td>MTC</td>
-            <td>90</td>
+            <td>{pupil.mathematics}</td>
             <td>1</td>
             <td>Excellent</td>
           </tr>
           <tr>
             <td>SCIE</td>
-            <td>90</td>
+            <td>{pupil.sci}</td>
             <td>1</td>
             <td>Excellent</td>
           </tr>
           <tr>
             <td>SST</td>
-            <td>90</td>
+            <td>{pupil.sst}</td>
             <td>1</td>
             <td>Excellent</td>
           </tr>
           <tr>
             <td>ENG</td>
-            <td>90</td>
+            <td>{pupil.english}</td>
             <td>1</td>
             <td>Excellent</td>
           </tr>

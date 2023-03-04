@@ -10,7 +10,7 @@ const App = () => {
     <Router>
       <Routes>
         <Route exact path="/" element={<EnterMarks />} />
-        <Route path="/reportcard" element={<ReportCard />} />
+        <Route path="/reportcard/:id" element={<ReportCard />} />
         <Route path="/showpupils" element={<ShowPupils />} />
         <Route path="/singlepage/:id" element={<Singlepupil />} />
       </Routes>

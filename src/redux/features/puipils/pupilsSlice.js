@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, nanoid } from "@reduxjs/toolkit";
 
 const initialState = {
   pupils: [],
@@ -9,7 +9,15 @@ const pupilsSlice = createSlice({
   initialState,
   reducers: {
     addPupils: (state, action) => {
-      state.pupils = state.pupils.concat(action.payload);
+      const pupil = {
+        ...action.payload,
+        position: "",
+        grade: "",
+        total: "",
+        agg: { mathAgg: "", sstAgg: "", engAgg: "", sciAgg: "" },
+        aggregates: "",
+      };
+      state.pupils = state.pupils.concat(pupil);
     },
     handleSearch: (state, action) => {
       const wantedPupils = state.pupils.filter(

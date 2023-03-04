@@ -13,6 +13,7 @@ const Search = () => {
     if (pupilName !== "") {
       dispatch(handleSearch(pupilName));
     }
+    setPupilName(pupilName);
   }, [pupilName, dispatch]);
   return (
     <div className="search-content">

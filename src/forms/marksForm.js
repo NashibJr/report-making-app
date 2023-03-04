@@ -122,18 +122,31 @@ const EnterMarks = () => {
         type="button"
         disabled={!onSave}
         onClick={() => {
-          dispatch(addPupils(pupil));
-          setState({
-            firstName: "",
-            lastName: "",
-            otherNames: "",
-            english: "",
-            mathematics: "",
-            sst: "",
-            sci: "",
-            class: "",
-          });
-          alert("Successfully added");
+          if (
+            state.mathematics > 100 ||
+            state.mathematics < 0 ||
+            state.sst > 100 ||
+            state.sst < 0 ||
+            state.sci > 100 ||
+            state.sci < 0 ||
+            state.english < 0 ||
+            state.english > 100
+          ) {
+            alert("Marks should be between 0 and 100");
+          } else {
+            dispatch(addPupils(pupil));
+            setState({
+              firstName: "",
+              lastName: "",
+              otherNames: "",
+              english: "",
+              mathematics: "",
+              sst: "",
+              sci: "",
+              class: "",
+            });
+            alert("Successfully added");
+          }
         }}
       >
         Save

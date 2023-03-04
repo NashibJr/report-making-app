@@ -45,7 +45,7 @@ const Singlepupil = () => {
                 type="button"
                 className="single-pupil-button"
                 onClick={() => {
-                  navigate("/reportcard");
+                  navigate(`/reportcard/${pupil.id}`);
                 }}
               >
                 Generate report
