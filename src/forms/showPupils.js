@@ -9,14 +9,20 @@ const ShowPupils = () => {
     <div className="show-pupils-content">
       <div className="pupils-content">
         <h1>All pupils</h1>
-        <div className="pupils">
-          {pupils &&
-            pupils.map((pupil) => (
-              <li key={pupil.id}>
-                <Pupil pupil={pupil} />
-              </li>
-            ))}
-        </div>
+        {pupils.length === 0 ? (
+          <p style={{ marginTop: "15vh", marginLeft: "3vh", color: "red" }}>
+            No pupils yet
+          </p>
+        ) : (
+          <div className="pupils">
+            {pupils &&
+              pupils.map((pupil) => (
+                <li key={pupil.id}>
+                  <Pupil pupil={pupil} />
+                </li>
+              ))}
+          </div>
+        )}
       </div>
       <div>
         <Search />
