@@ -172,3 +172,29 @@ li {
       font-family: century gothic;
       font-weight: bold;
 }
+.single-pupil table tr td {
+      padding: 10px;
+      margin: 10px;
+      padding-left: 0;
+}
+.single-pupil div {
+      margin-top: 5vh;
+}
+.single-pupil table {
+      margin-top: 3vh;
+}
+.single-pupil-button {
+      width: 100%;
+      background-color: #000;
+      border: none;
+      color: #fff;
+      padding: 10px;
+      margin-top: 5vh;
+      font-size: 1em;
+      font-weight: bold;
+      border-radius: 20px;
+      outline: none;
+}
+.single-pupil-back-button {
+      margin-top: 0;
+}
