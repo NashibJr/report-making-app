@@ -2,7 +2,7 @@ import { nanoid } from "@reduxjs/toolkit";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { addPupils } from "../redux/features/puipils/pupilsSlice";
+import { handlePupils } from "../redux/features/puipils/pupilsSlice";
 
 const EnterMarks = () => {
   const [state, setState] = useState({
@@ -134,7 +134,7 @@ const EnterMarks = () => {
           ) {
             alert("Marks should be between 0 and 100");
           } else {
-            dispatch(addPupils(pupil));
+            dispatch(handlePupils(pupil));
             setState({
               firstName: "",
               lastName: "",
