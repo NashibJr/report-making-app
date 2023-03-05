@@ -10,7 +10,6 @@ const ShowPupils = () => {
   useEffect(() => {
     dispatch(handlePosition());
   }, [dispatch]);
-  console.log(pupils);
   return (
     <div className="show-pupils-content">
       <div className="pupils-content">
