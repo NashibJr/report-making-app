@@ -38,25 +38,25 @@ const ReportCard = () => {
             <td>MTC</td>
             <td>{pupil.mathematics}</td>
             <td>{pupil.agg.mathAgg}</td>
-            <td>Excellent</td>
+            <td>{pupil.comment.math}</td>
           </tr>
           <tr>
             <td>SCIE</td>
             <td>{pupil.sci}</td>
             <td>{pupil.agg.sciAgg}</td>
-            <td>Excellent</td>
+            <td>{pupil.comment.sci}</td>
           </tr>
           <tr>
             <td>SST</td>
             <td>{pupil.sst}</td>
             <td>{pupil.agg.sstAgg}</td>
-            <td>Excellent</td>
+            <td>{pupil.comment.sst}</td>
           </tr>
           <tr>
             <td>ENG</td>
             <td>{pupil.english}</td>
             <td>{pupil.agg.engAgg}</td>
-            <td>Excellent</td>
+            <td>{pupil.comment.eng}</td>
           </tr>
           <tr>
             <td>
