@@ -200,9 +200,17 @@ const pupilsSlice = createSlice({
       );
       state.searchResult = wantedPupils;
     },
+    handlePosition: (state, action) => {
+      const pupils = state.pupils;
+      pupils.sort((a, b) => b.total - a.total);
+      for (let index = 0; index < pupils.length; index++) {
+        pupils[index].position = index + 1;
+      }
+    },
   },
 });
 
-export const { handlePupils, handleSearch } = pupilsSlice.actions;
+export const { handlePupils, handleSearch, handlePosition } =
+  pupilsSlice.actions;
 
 export default pupilsSlice;

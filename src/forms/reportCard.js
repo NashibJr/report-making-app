@@ -75,8 +75,8 @@ const ReportCard = () => {
           <strong>Headteacher's comment:</strong> {pupil.comment.headTeachers}
         </p>
         <p>
-          <strong>Position:</strong> <strong>2</strong> out of{" "}
-          <strong>120</strong>
+          <strong>Position:</strong> <strong>{pupil.position}</strong> out of{" "}
+          <strong>{pupils.length}</strong>
         </p>
         <p>
           <span>
