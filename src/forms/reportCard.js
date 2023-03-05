@@ -1,13 +1,13 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import badge from "../images/scbhoologo.png";
 
 const ReportCard = () => {
   const { id } = useParams();
   const pupils = useSelector((state) => state.pupils.pupils);
   const pupil = pupils.find((pupil) => pupil.id === id);
-  console.log(pupils);
+  const navigate = useNavigate();
   return (
     <div className="report-content">
       <h2>XXX Primary School Terminal Report</h2>
@@ -38,25 +38,25 @@ const ReportCard = () => {
             <td>MTC</td>
             <td>{pupil.mathematics}</td>
             <td>{pupil.agg.mathAgg}</td>
-            <td>{pupil.comment.math}</td>
+            <td>{pupil.comment._math}</td>
           </tr>
           <tr>
             <td>SCIE</td>
             <td>{pupil.sci}</td>
             <td>{pupil.agg.sciAgg}</td>
-            <td>{pupil.comment.sci}</td>
+            <td>{pupil.comment._sci}</td>
           </tr>
           <tr>
             <td>SST</td>
             <td>{pupil.sst}</td>
             <td>{pupil.agg.sstAgg}</td>
-            <td>{pupil.comment.sst}</td>
+            <td>{pupil.comment._sst}</td>
           </tr>
           <tr>
             <td>ENG</td>
             <td>{pupil.english}</td>
             <td>{pupil.agg.engAgg}</td>
-            <td>{pupil.comment.eng}</td>
+            <td>{pupil.comment._eng}</td>
           </tr>
           <tr>
             <td>
@@ -69,11 +69,10 @@ const ReportCard = () => {
       </div>
       <div className="remarks-content">
         <p>
-          <strong>Teacher's comment:</strong> Excellent performance, keep it up
+          <strong>Teacher's comment:</strong> {pupil.comment.teachers}
         </p>
         <p>
-          <strong>Headteacher's comment:</strong> Excellent performance, keep it
-          up
+          <strong>Headteacher's comment:</strong> {pupil.comment.headTeachers}
         </p>
         <p>
           <strong>Position:</strong> <strong>2</strong> out of{" "}
@@ -83,7 +82,17 @@ const ReportCard = () => {
           <span>
             <strong>Grade:</strong> {pupil.grade}
           </span>
-          <button type="button">Print</button>
+          <div>
+            <button type="button" onClick={() => window.print()}>
+              Print
+            </button>
+            <button
+              type="button"
+              onClick={() => navigate(`/singlepage/${pupil.id}`)}
+            >
+              Back
+            </button>
+          </div>
         </p>
       </div>
     </div>

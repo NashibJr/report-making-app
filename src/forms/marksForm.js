@@ -76,6 +76,7 @@ const EnterMarks = () => {
             onChange={handleChange}
             placeholder="Class"
             className="input-content"
+            style={{ width: "16.5%" }}
           />
         </div>
       </div>

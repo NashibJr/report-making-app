@@ -75,18 +75,19 @@ form button {
 .remarks-content {
       margin-top: 30px;
 }
-.remarks-content p:last-child {
+.remarks-content p:last-child, .remarks-content p:last-child div {
       display: flex;
       justify-content: space-between;
 }
 .remarks-content p:last-child button {
-      background-color: dodgerblue;
+      background-color: #000;
       color: #fff;
       font-family: century gothic;
       padding: 10px;
-      width: 20%;
+      width: 110%;
       border: none;
       font-weight: bold;
+      margin: 5px;
 }
 form button:last-child {
       margin-left: 40px;
