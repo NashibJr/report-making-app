@@ -10,7 +10,7 @@ import {
 const Search = () => {
   const [pupilName, setPupilName] = useState("");
   const dispatch = useDispatch();
-  const pupils = useSelector((state) => state.pupils.searchResult);
+  const pupils = useSelector((state) => state.pupils?.searchResult);
   const navigate = useNavigate();
   useEffect(() => {
     if (pupilName !== "") {
@@ -43,7 +43,7 @@ const Search = () => {
       </form>
       <div className="pupils search">
         {pupils &&
-          pupils.map((pupil) => (
+          pupils?.map((pupil) => (
             <li key={pupil.id}>
               <Pupil pupil={pupil} />
             </li>

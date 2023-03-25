@@ -210,10 +210,25 @@ const pupilsSlice = createSlice({
     emptySearchArray: (state, action) => {
       state.searchResult = [];
     },
+    handleDelete: (state, action) => {
+      const { id } = action.payload;
+      const pupilsToBeReturned = state.pupils.filter(
+        (pupil) => pupil.id !== id
+      );
+      state.pupils = pupilsToBeReturned;
+      state.searchResult = state.searchResult.filter(
+        (pupil) => pupil.id !== id
+      );
+    },
   },
 });
 
-export const { handlePupils, handleSearch, handlePosition, emptySearchArray } =
-  pupilsSlice.actions;
+export const {
+  handlePupils,
+  handleSearch,
+  handlePosition,
+  emptySearchArray,
+  handleDelete,
+} = pupilsSlice.actions;
 
 export default pupilsSlice;

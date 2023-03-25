@@ -199,3 +199,15 @@ li {
 .single-pupil-back-button {
       margin-top: 0;
 }
+.pupil-content p {
+      display: flex;
+      justify-content: space-between;
+}
+.pupil-content p button {
+      padding: 10px;
+      margin-right: 10px;
+      border: none;
+      color: #fff;
+      background-color: #000;
+      border-radius: 20px;
+}
