@@ -207,10 +207,13 @@ const pupilsSlice = createSlice({
         pupils[index].position = index + 1;
       }
     },
+    emptySearchArray: (state, action) => {
+      state.searchResult = [];
+    },
   },
 });
 
-export const { handlePupils, handleSearch, handlePosition } =
+export const { handlePupils, handleSearch, handlePosition, emptySearchArray } =
   pupilsSlice.actions;
 
 export default pupilsSlice;

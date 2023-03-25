@@ -2,7 +2,10 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Pupil from "../components/pupils";
-import { handleSearch } from "../redux/features/puipils/pupilsSlice";
+import {
+  emptySearchArray,
+  handleSearch,
+} from "../redux/features/puipils/pupilsSlice";
 
 const Search = () => {
   const [pupilName, setPupilName] = useState("");
@@ -12,6 +15,8 @@ const Search = () => {
   useEffect(() => {
     if (pupilName !== "") {
       dispatch(handleSearch(pupilName));
+    } else {
+      dispatch(emptySearchArray());
     }
     setPupilName(pupilName);
   }, [pupilName, dispatch]);
