@@ -2,16 +2,21 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Pupil from "../components/pupils";
-import { handleSearch } from "../redux/features/puipils/pupilsSlice";
+import {
+  emptySearchArray,
+  handleSearch,
+} from "../redux/features/puipils/pupilsSlice";
 
 const Search = () => {
   const [pupilName, setPupilName] = useState("");
   const dispatch = useDispatch();
-  const pupils = useSelector((state) => state.pupils.searchResult);
+  const pupils = useSelector((state) => state.pupils?.searchResult);
   const navigate = useNavigate();
   useEffect(() => {
     if (pupilName !== "") {
       dispatch(handleSearch(pupilName));
+    } else {
+      dispatch(emptySearchArray());
     }
     setPupilName(pupilName);
   }, [pupilName, dispatch]);
@@ -38,7 +43,7 @@ const Search = () => {
       </form>
       <div className="pupils search">
         {pupils &&
-          pupils.map((pupil) => (
+          pupils?.map((pupil) => (
             <li key={pupil.id}>
               <Pupil pupil={pupil} />
             </li>

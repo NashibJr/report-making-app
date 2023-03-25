@@ -9,7 +9,7 @@ const Singlepupil = () => {
   const pupil = pupils.find((pupil) => pupil.id === id);
   return (
     <div className="single-pupil">
-      <h1>Student Profile</h1>
+      <h1>Student Scores</h1>
       <div>
         <p>
           Name:{" "}
